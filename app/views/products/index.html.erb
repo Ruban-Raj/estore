@@ -1,0 +1,27 @@
+<h1>Ecommerce Webpage</h1>
+<table class="table table-striped">
+  <%= link_to "Profile", user_path(current_user)%>
+  <tr>
+    <th>IMAGE</th>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>product_type</th>
+    <th>price</th>
+  </tr>
+    <tr>
+    <% @productss.each do |a|%>
+    <td>
+      <%if a.images.present?%>
+      <%a.images.each do |image| %>
+      <%= image_tag image.pic(:thumb) %>
+      <%end%>
+      <%end%>
+    </td>
+    <td><%= link_to a.name, product_path(a)%></td>
+    <td><%= a.brand%></td>
+    <td><%= a.product_type%></td>
+    <td><%= a.price%></td>
+    </tr>
+    <%end%>
+ </table>
+<%=link_to "NewProducts", new_product_path%>

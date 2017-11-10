@@ -1,0 +1,18 @@
+<h1>Ecommerce Products</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Brand</th>
+    <th>product_type</th>
+    <th>price</th>
+  </tr>
+    <tr>
+    <td><%= @prodt.name%></td>
+    <td><%= @prodt.brand%></td>
+    <td><%= @prodt.product_type%></td>
+    <td><%= @prodt.price%></td>
+    <td><%= link_to "EDIT", edit_product_path, :class => "btn btn-success" %></td>
+    <td><%= link_to "DELETE",@prodt, method: :delete, data: {confirm: "Are you sure? want to delete???"}, :class => "btn btn-danger"%></td>
+    </tr>
+ </table>

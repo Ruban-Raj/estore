@@ -1,0 +1,25 @@
+<%= form_for @prdt do | p |%>
+<table class="table table-striped">
+  <tr>
+<td><%= p.label :name%></td>
+<td><%= p.text_field :name%>
+</tr>
+<tr>
+<td><%= p.label :brand%>
+<td><%= p.text_field :brand%>
+</tr>
+<tr>
+<td><%= p.label :product_type%>
+<td><%= p.text_field :product_type%>
+</tr>
+<tr>
+<td><%= p.label :price%>
+<td><%= p.text_field :price%>
+</tr>
+<tr>
+  <td><%= p.submit "update"%></td>
+</tr>
+</table>
+<%end%>
+
+<%=link_to "HomePage",products_path%>

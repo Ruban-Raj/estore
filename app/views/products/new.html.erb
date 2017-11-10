@@ -1,0 +1,42 @@
+<!--syntax to create form-->
+<!--%=form_for object do |block_object| %-->
+<!--%=block_object block_object.lable: column_name %-->
+<!--%=block_object block_object.text_field: column_name %-->
+<!--end-->
+<%if @product.errors.any?%>
+<% @product.errors.messages.each do |key, value| %>
+<%= key.to_s + ":" + value.first%>
+<%end%>
+<%end%>
+
+<%= form_for @product do | p |%>
+<table class="table table-striped">
+  <tr>
+<td><%= p.label :name%></td>
+<td><%= p.text_field :name%>
+</tr>
+<tr>
+<td><%= p.label :brand%>
+<td><%= p.text_field :brand%>
+</tr>
+<tr>
+<td><%= p.label :product_type%>
+<td><%= p.text_field :product_type%>
+</tr>
+<tr>
+<td><%= p.label :price%>
+<td><%= p.text_field :price%>
+</tr>
+<tr>
+  <%= p.fields_for :image do |image| %>
+  <td><%= image.label :pic %></td>
+  <td><%= image.file_field :pic, multiple: true %></td>
+  <%end%>
+</tr>
+<tr>
+  <td><%= p.submit "Save"%></td>
+</tr>
+</table>
+<%end%>
+
+<%=link_to "HomePage",products_path%>

@@ -1,0 +1,13 @@
+<h1>My Profile</h1>
+<table class="table table-striped">
+  <tr>
+    <th>NAME</th>
+    <th>EMAIL</th>
+    <th>IMAGE</th>
+  </tr>
+  <tr>
+    <td><%= @user.name%></td>
+    <td><%= @user.email%></td>
+    <td><%= image_tag @user.image.pic(:ruban_size) if @user.image.present? %></td>
+  </tr>
+</table>

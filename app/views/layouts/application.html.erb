@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Estore</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <%= render "layouts/header"%>
+    <%=products_url %>
+    <p><%="Total products on server are #{procount}"%></p>
+    <%=link_to "Log Out", logout_users_path, method: :delete if session[:user_id].present?%>
+    <%flash.each do |key, value|%>
+    <%=value%>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>

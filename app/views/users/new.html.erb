@@ -1,0 +1,34 @@
+<%if @user.errors.any? %>
+ <% @user.errors.messages.each do |key, value| %>
+  <%= key.to_s + ":" + value.first%>
+ <%end%>
+<%end%>
+<%= form_for @user do | a | %>
+<table class="table table-striped">
+<tr>
+  <td><%= a.label :name%></td>
+  <td><%= a.text_field :name%></td>
+</tr>
+<tr>
+  <td><%= a.label :email%></td>
+  <td><%= a.email_field :email%></td>
+</tr>
+<tr>
+  <td><%= a.label :password%></td>
+  <td><%= a.password_field :password%></td>
+</tr>
+<tr>
+  <td><%= a.label :confirm_password%></td>
+  <td><%= a.password_field :confirm_password%></td>
+</tr>
+<tr>
+  <%= a.fields_for :image do |image| %>
+  <td><%= image.label :pic %></td>
+  <td><%= image.file_field :pic %></td>
+  <%end%>
+</tr>
+<tr>
+  <td><%= a.submit "sAvE"%></td>
+</tr>
+</table>
+<%end%>
